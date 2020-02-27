@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2019 The Cacti Group                                 |
+ | Copyright (C) 2004-2020 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -185,12 +185,12 @@ function get_graph_data() {
 	$graph_data_array = array();
 
 	/* override: graph start time (unix time) */
-	if (!isempty_request_var('graph_start') && get_request_var('graph_start') < 1600000000) {
+	if (!isempty_request_var('graph_start') && get_request_var('graph_start') < FILTER_VALIDATE_MAX_DATE_AS_INT) {
 		$graph_data_array['graph_start'] = get_request_var('graph_start');
 	}
 
 	/* override: graph end time (unix time) */
-	if (!isempty_request_var('graph_end') && get_request_var('graph_end') < 1600000000) {
+	if (!isempty_request_var('graph_end') && get_request_var('graph_end') < FILTER_VALIDATE_MAX_DATE_AS_INT) {
 		$graph_data_array['graph_end'] = get_request_var('graph_end');
 	}
 
